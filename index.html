@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shopping Page</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./pay.html" />
+    <link rel="stylesheet" href="./cart.html" />
+    <link rel="stylesheet" href="./order.html" />
+    <link rel="stylesheet" href="./index.css" />
+    <style>
+      .--savior-overlay-transform-reset {
+        transform: none !important;
+      }
+      .--savior-overlay-z-index-top {
+        z-index: 2147483643 !important;
+      }
+      .--savior-overlay-position-relative {
+        position: relative;
+      }
+      .--savior-overlay-position-static {
+        position: static !important;
+      }
+      .--savior-overlay-overflow-hidden {
+        overflow: hidden !important;
+      }
+      .--savior-overlay-overflow-x-visible {
+        overflow-x: visible !important;
+      }
+      .--savior-overlay-overflow-y-visible {
+        overflow-y: visible !important;
+      }
+      .--savior-overlay-z-index-reset {
+        z-index: auto !important;
+      }
+      .--savior-overlay-display-none {
+        display: none !important;
+      }
+      .--savior-overlay-clearfix {
+        clear: both;
+      }
+      .--savior-overlay-reset-filter {
+        filter: none !important;
+        backdrop-filter: none !important;
+      }
+      .--savior-tooltip-host {
+        z-index: 9999;
+        position: absolute;
+        top: 0;
+      }
+      @-moz-keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      @-webkit-keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      @-o-keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+    </style>
+    <link
+      typer="text/css"
+      rel="stylesheet"
+      charset="UTF-8"
+      href="https://www.gstatic.com/_/translate_http/_/ss/k=translate_http.tr.26tY-h6gH9w.L.W.O/am=BgM/d=0/rs=AN8SPfowrRiAotkQD9r4k3ANeQYGsCLZ7g/m=el_main_css"
+    />
+  </head>
+
+  <body>
+    <!--start Trang sản phẩm -->
+    <div id="app">
+      <div>
+        <div class="banner">
+          <!-- trang sản phẩm -->
+          <div class="nav">
+            <button onclick="goToCart()">
+              <i class="fas fa-shopping-cart" style="font-size: 2rem"></i>
+            </button>
+            <span class="total-qty">0</span>
+          </div>
+          <div onclick="" class="cover" style="display: none"></div>
+          <div class="cover purchase-cover" style="display: none"></div>
+          <!-- end trang sản phẩm -->
+          <!-- giỏ hàng -->
+          <div class="cart">
+            <div class="side-nav" style="right: -100%">
+              <button onclick="">
+                <i class="fas fa-times"></i>
+              </button>
+              <h2>Cart</h2>
+              <div class="cart-items">
+                <span class="empty-cart"
+                  >Looks Like You Haven't Added Any Product In The Cart</span
+                >
+              </div>
+              <div class="final">
+                <strong>
+                  Total: $
+                  <span class="total">0</span>
+                </strong>
+                <div class="action">
+                  <button onclick="" class="btn buy">
+                    Purchase
+                    <i class="fas fa-credit-card" style="color: #6665dd"></i>
+                  </button>
+                  <button onclick="" class="btn clear">
+                    Clear Cart
+                    <i class="fas fa-trash" style="color: #bb342f"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- <div class="stock-limit">
+                  <em>You Can Only Buy 10 Items For Each Product</em>
+                  <button class="btn-ok" onclick="">Okay</button>
+                </div> -->
+          <!-- end giỏ hàng -->
+          <!-- bấm vào nút purchase vào trang ẩn -->
+          <!-- <div class="order-now">
+                  <div class="invoice">
+                    <div class="shipping-items">
+                      <div class="item-names">
+                        <span></span>
+                      </div>
+                      <div class="items-price">
+                        <span></span>
+                      </div>
+                    </div>
+                    <hr>
+                    <div class="payment">
+                      <em>payment</em>
+                      <div>
+                        <p>total amount to be paid:</p>
+                        <span class="pay"></span>
+                      </div>
+                    </div>
+                    <div class="order">
+                      <button onclick="" class="btn-order btn">Order Now</button>
+                      <button onclick="" class="btn-cancel btn">Cancel</button>
+                    </div>
+                  </div>
+                </div>  -->
+        </div>
+      </div>
+    </div>
+    <script>
+      function goToCart() {
+        window.location.href = "cart.html"; // Thay URL bằng link trang giỏ hàng
+      }
+    </script>
+    <!-- cdn axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!-- controller -->
+    <script src=".js/controller.js"></script>
+    <!-- my js -->
+    <script src="./js/index.js"></script>
+  </body>
+</html>

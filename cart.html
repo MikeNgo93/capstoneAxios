@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./order.html">
+    <link rel="stylesheet" href="./index.html">
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+    <div class="cart">
+        <div class="side-nav" style="right: -100%;">
+          <button onclick="goToHome()">
+            <i class="fas fa-times"></i>
+          </button>
+          <h2>Cart</h2>
+          <div class="cart-items">
+            <span class="empty-cart">Looks Like You Haven't Added Any Product In The Cart</span>
+          </div>
+          <div class="final">
+            <strong>
+              Total: $ 
+              <span class="total">0</span>
+            </strong>
+            <div class="action">
+              <button onclick="goToOrder()" class="btn buy">
+                Purchase 
+                <i class="fas fa-credit-card" style="color:#6665dd;"></i>
+              </button>
+              <button onclick="" class="btn clear">
+                Clear Cart 
+                <i class="fas fa-trash" style="color:#bb342f;"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="stock-limit">
+        <em>You Can Only Buy 10 Items For Each Product</em>
+        <button class="btn-ok" onclick="">Okay</button>
+      </div>
+      <script>
+        function goToHome() {
+          window.location.href = '/index.html'; // Thay URL bằng link trang home
+        }
+      </script>
+      <script>
+        function goToOrder() {
+          window.location.href = '/order.html'; // Thay URL bằng link trang home
+        }
+      </script>
+      <!-- cdn axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!-- controller -->
+    <script src="./app/controllers/controller.js"></script>
+    <!-- my js -->
+    <script src="./app/controllers/index.js"></script>
+</body>
+</html>

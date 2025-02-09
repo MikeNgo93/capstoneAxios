@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="./index.html">
+    <link rel="stylesheet" href="./cart.html">
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+    <div class="order-now">
+        <div class="invoice">
+          <div class="shipping-items">
+            <div class="item-names">
+              <span></span>
+            </div>
+            <div class="items-price">
+              <span></span>
+            </div>
+          </div>
+          <hr>
+          <div class="payment">
+            <em>payment</em>
+            <div>
+              <p>total amount to be paid:</p>
+              <span class="pay"></span>
+            </div>
+          </div>
+          <div class="order">
+            <button onclick="goToPay()" class="btn-order btn">Order Now</button>
+            <button onclick="goToHome()" class="btn-cancel btn">Cancel</button>
+            <!-- <div class="invoice" style="height: 500px; width: 400px;">
+                <div>
+                    <div class="order-details">
+                        <em>your order has been placed</em>
+                        <p>
+                            Your order-id is : 
+                            <span></span>
+                        </p>
+                        <p>your order will be delivered to you in 3-5 working days</p>
+                        <p>
+                            you can pay 
+                            <span></span>
+                            by card or any online transaction method after the products have been dilivered to you
+                        </p>
+                    </div>
+                    <button onclick="" class="btn-ok">okay</button>
+                </div>
+            </div> -->
+          </div>
+        </div>
+      </div> 
+      <script>
+        function goToHome() {
+          window.location.href = '/index.html'; // Đường dẫn đến trang home
+        }
+      </script>
+      <script>
+        function goToPay() {
+          window.location.href = 'pay.html'; // Thay URL bằng link trang home
+        }
+      </script>
+</body>
+</html>
