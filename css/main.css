@@ -1,0 +1,70 @@
+.sp-thongbao {
+  color: red;
+  margin-left: 2px;
+  display: none;
+}
+
+/* #SapXepGiam {
+  display: none;
+} */
+
+#content {
+  width: 100%;
+  background: #74ebd5; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #acb6e5,
+    #74ebd5
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #acb6e5,
+    #74ebd5
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.myCardHeader,
+.myCardFooter {
+  background-color: transparent;
+}
+
+.myTable th,
+.myTable td {
+  white-space: normal;
+  word-wrap: break-word;
+  max-width: 150px;
+}
+
+#loading {
+  width: 100vw;
+  height: 100vh;
+  background: rgba(200, 200, 200, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+#loading::after {
+  content: "Loading...";
+  font-size: 24px;
+  color: teal;
+  font-weight: bold;
+}
+
+.nowrap {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.sort-arrows {
+  display: flex;
+  gap: 5px;
+}
+
+.sort-arrows i {
+  cursor: pointer;
+}
