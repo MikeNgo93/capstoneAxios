@@ -35,6 +35,37 @@ let renderSalesProduct = (productArr) => {
   document.getElementById("productGrid").innerHTML = contentHTML;
 };
 
+let addToCart = (id) => {
+  console.log("Adding to cart, product ID:", id);
+
+  let reversedProducts = [...productsArray].reverse();
+  let product = reversedProducts.find((item) => item.id == id);
+
+  if (!product) {
+    console.error("Error: Product not found with ID:", id);
+    return;
+  }
+
+  // Check
+  let cartItem = cart.find((item) => item.id == id);
+
+  if (cartItem) {
+    cartItem.quantity++; // tăng quantity
+  } else {
+    // Tạo mới
+    let newCartItem = {
+      id: product.id,
+      name: product.name,
+      img: product.img,
+      price: product.price,
+      quantity: 1,
+    };
+    cart.push(newCartItem);
+  }
+
+  console.log("Cart updated:", cart);
+};
+
 let turnOnLoading = () => {
   document.getElementById("loading").style.display = "block";
   console.log("loading on");

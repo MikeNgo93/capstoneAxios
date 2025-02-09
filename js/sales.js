@@ -7,10 +7,14 @@ Các cải tiến:
   - Có dùng finally để tắt loading
 */
 
+let cart = []; // Global cart array
+let productsArray = [];
+
 const fetchSalesProduct = async () => {
   try {
     turnOnLoading();
     const result = await axios.get(BASE_URL);
+    productsArray = result.data;
     renderSalesProduct(result.data);
   } catch (error) {
     console.error("Error fetching products:", error);
@@ -20,6 +24,7 @@ const fetchSalesProduct = async () => {
 };
 
 fetchSalesProduct();
+console.log(productsArray);
 
 const filterSP = async (selectedValue) => {
   console.log("filter");
