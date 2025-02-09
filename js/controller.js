@@ -1,3 +1,7 @@
+/* GLOBAL VARIABLE */
+let cart = []; // Global cart array
+
+/* ADMIN PAGE*/
 let refreshPage = () => {
   location.reload();
 };
@@ -191,4 +195,165 @@ let searchSP = async () => {
   }
 
   return satisfied;
+};
+
+/* SALES PAGE*/
+let renderSalesProduct = (productArr) => {
+  console.log("productArr:", productArr);
+
+  let contentHTML = "<div class='row'>"; // Start of the row container
+
+  productArr.reverse().forEach((product, index) => {
+    let divString = `<div class="col-md-3 product-card">
+                          <div class="card">
+                            <img src="${product.img}" class="card-img-top" alt="${product.name}" />
+                            <div class="card-body">
+                              <h5 class="card-title">${product.name}</h5>
+                              <p class="card-text"><strong>Back Camera:</strong> ${product.backCamera}</p>
+                              <p class="card-text"><strong>Front Camera:</strong> ${product.frontCamera}</p>
+                              <p class="card-text"><strong>Description:</strong> ${product.desc}</p>
+                              <button class="btn btn-primary" onclick="addToCart(${product.id})">
+                                Add to Cart
+                              </button>
+                            </div>
+                          </div>
+                        </div>`;
+
+    contentHTML += divString;
+
+    // Close row sau mỗi 4 divs
+    if ((index + 1) % 4 === 0) {
+      contentHTML += "</div><div class='row'>"; // Start a new row
+    }
+  });
+
+  contentHTML += "</div>"; // End
+  document.getElementById("productGrid").innerHTML = contentHTML;
+};
+
+// Save cart to local storage
+let saveCartsToLocal = () => {
+  localStorage.setItem("cart", JSON.stringify(cart));
+};
+
+// Load cart from local storage
+let loadCartsFromLocal = () => {
+  let storedCart = localStorage.getItem("cart"); // Get cart data from localStorage
+  if (storedCart) {
+    cart = JSON.parse(storedCart);
+    console.log("Cart loaded from localStorage:", cart);
+  } else {
+    cart = [];
+  }
+  return cart;
+};
+
+let addToCart = (id) => {
+  console.log("Adding to cart, product ID:", id);
+
+  let reversedProducts = [...productsArray].reverse();
+  let product = reversedProducts.find((item) => item.id == id);
+
+  if (!product) {
+    console.error("Error: Product not found with ID:", id);
+    return;
+  }
+
+  // Check
+  let cartItem = cart.find((item) => item.id == id);
+
+  if (cartItem) {
+    cartItem.quantity++; // tăng quantity
+  } else {
+    // Tạo mới
+    let newCartItem = {
+      id: product.id,
+      name: product.name,
+      img: product.img,
+      price: product.price,
+      desc: product.desc,
+      quantity: 1,
+    };
+    cart.push(newCartItem);
+  }
+
+  console.log("Cart updated:", cart);
+  updateCartQuantity();
+  saveCartsToLocal();
+};
+
+let updateCartQuantity = () => {
+  document.querySelector(".total-qty").textContent = cart.reduce(
+    (total, item) => total + item.quantity,
+    0
+  );
+};
+
+/* CART PAGE*/
+
+let renderCart = () => {
+  let contentHTML = "";
+
+  let totalPrice = 0;
+
+  cart.forEach((cartItem) => {
+    let itemTotalPrice = cartItem.price * cartItem.quantity;
+    totalPrice += itemTotalPrice;
+
+    let trString = `<tr>
+                        <td>${cartItem.name}</td>
+                        <td>${cartItem.price.toLocaleString()} VND</td>
+                        <td>${cartItem.quantity}</td>
+                        <td>${itemTotalPrice.toLocaleString()} VND</td>
+                        <td>
+                            <button class="btn btn-success" onclick="increaseQuantity(${
+                              cartItem.id
+                            })">
+                                Add
+                            </button>
+                            <button class="btn btn-warning" onclick="decreaseQuantity(${
+                              cartItem.id
+                            })">
+                                Decrease
+                            </button>
+                        </td>
+                </tr>`;
+    contentHTML += trString;
+  });
+
+  // Phần tổng tiền
+  contentHTML += `<tr>
+                      <td colspan="3"><strong>Tổng tiền</strong></td>
+                      <td colspan="2"><strong>${totalPrice.toLocaleString()} VND</strong></td>
+                    </tr>`;
+
+  document.getElementById("tableGiohang").innerHTML = contentHTML;
+};
+
+let increaseQuantity = (id) => {
+  console.log(id);
+  let cartItem = cart.find((item) => item.id == id);
+  console.log(cartItem);
+
+  if (cartItem) {
+    cartItem.quantity++;
+
+    saveCartsToLocal();
+    renderCart();
+  }
+};
+
+let decreaseQuantity = (id) => {
+  console.log(id);
+
+  let cartItem = cart.find((item) => item.id == id);
+
+  if (cartItem) {
+    if (cartItem.quantity > 0) {
+      cartItem.quantity--;
+    }
+
+    saveCartsToLocal();
+    renderCart();
+  }
 };

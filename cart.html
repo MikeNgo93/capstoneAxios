@@ -47,11 +47,22 @@
           </thead>
           <tbody id="tableGiohang"></tbody>
         </table>
+
+        <!-- Buttons Thanh Toán and Reset Giỏ Hàng -->
+        <div class="d-flex justify-content-between mt-4">
+          <button class="btn btn-danger" onclick="resetCart()">
+            Reset Giỏ Hàng
+          </button>
+          <button class="btn btn-success" onclick="payment()">
+            Thanh Toán
+          </button>
+        </div>
       </div>
     </div>
     <!-- cdn axios -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <!-- my js -->
+    <script src="js/controller.js"></script>
     <script src="/js/cart.js"></script>
   </body>
 </html>
