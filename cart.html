@@ -53,12 +53,18 @@
           <button class="btn btn-danger" onclick="resetCart()">
             Reset Giỏ Hàng
           </button>
-          <button class="btn btn-success" onclick="payment()">
+          <button class="btn btn-success" onclick="goToPayment()">
             Thanh Toán
           </button>
         </div>
       </div>
     </div>
+    <script>
+      function goToPayment() {
+        resetCart();
+        window.location.href = "/pay.html";
+      }
+    </script>
     <!-- cdn axios -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <!-- my js -->
