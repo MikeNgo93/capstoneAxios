@@ -61,12 +61,15 @@ button {
   border-color: buttonborder;
   border-image: initial;
 }
+
 .banner {
-  position: relative;
-  height: 100vh;
-  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
   background: linear-gradient(to left, #8942a8, #ba382f);
-  overflow: hidden;
+  overflow-y: auto;
 }
 
 .top-bar {

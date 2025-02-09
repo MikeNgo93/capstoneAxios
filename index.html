@@ -97,6 +97,24 @@
 
       <div>
         <div class="banner">
+          <!-- Dropdown and refresh -->
+          <div class="banner-top">
+            <div class="dropdown">
+              <select
+                id="productType"
+                class="form-control"
+                style="width: 200px; margin: 10px"
+              >
+                <option value="samsung">Samsung</option>
+                <option value="iphone">iPhone</option>
+              </select>
+            </div>
+
+            <button onclick="refreshPage()" class="refresh-btn">
+              <i class="fas fa-sync-alt" style="font-size: 1.5rem"></i> Refresh
+            </button>
+          </div>
+
           <!-- trang sản phẩm -->
           <div id="productGrid"></div>
           <div class="nav">

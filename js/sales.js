@@ -21,5 +21,3 @@ const fetchSalesProduct = async () => {
 };
 
 fetchSalesProduct();
-
-console.log("run run");
