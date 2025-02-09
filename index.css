@@ -8,6 +8,7 @@
   color: white;
   font-family: "Montserrat", sans-serif;
 }
+
 div {
   display: flex;
 }
@@ -383,6 +384,7 @@ p {
   flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
+  margin-top: 100px;
 }
 
 /* Each product card */
@@ -398,29 +400,50 @@ p {
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Ensure card takes full available height */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
 }
 
+/* Hover effect */
+.card:hover {
+  transform: scale(1.25);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Image styling */
 .card-img-top {
   width: 100%;
   height: auto;
 }
 
 .card-body {
+  flex-grow: 1;
   padding: 15px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 1;
 }
 
+/* Card title and text */
 .card-title {
   font-size: 1.2em;
   font-weight: bold;
+  margin-bottom: 10px;
+  color: black;
 }
 
 .card-text {
   font-size: 0.9em;
   color: #555;
+  margin-bottom: 5px;
 }
 
 /* Add to cart button */
 .btn {
+  margin-top: auto;
   width: 100%;
   background-color: #007bff;
   color: white;
@@ -433,4 +456,59 @@ p {
 
 .btn:hover {
   background-color: #0056b3;
+}
+
+/* Optional: Add some spacing between the rows of cards */
+.row {
+  margin-bottom: 20px;
+}
+
+/* Wrapper (for additional details or effects) */
+.wrapper {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 2;
+  transition: opacity 0.3s ease;
+}
+
+/* Details section for hover effect (e.g., additional info) */
+.details {
+  position: absolute;
+  bottom: -30px;
+  left: 0;
+  right: 0;
+  background: #fff;
+  padding: 10px;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  transition: bottom 0.3s ease;
+}
+
+/* Hover states for the details and wrapper */
+.card:hover .details {
+  bottom: 0;
+}
+
+.card:hover .wrapper {
+  display: block;
+  opacity: 1;
+}
+
+/* scrollable */
+body,
+html {
+  height: 100%;
+  overflow-y: auto;
+}
+
+/* if content overflows */
+.banner {
+  position: relative;
+  min-height: 100vh;
+  background: linear-gradient(to left, #8942a8, #ba382f);
+  overflow-y: auto;
 }
