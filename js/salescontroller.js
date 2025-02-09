@@ -35,6 +35,13 @@ let renderSalesProduct = (productArr) => {
   document.getElementById("productGrid").innerHTML = contentHTML;
 };
 
+let updateCartQuantity = () => {
+  document.querySelector(".total-qty").textContent = cart.reduce(
+    (total, item) => total + item.quantity,
+    0
+  );
+};
+
 let addToCart = (id) => {
   console.log("Adding to cart, product ID:", id);
 
@@ -58,12 +65,14 @@ let addToCart = (id) => {
       name: product.name,
       img: product.img,
       price: product.price,
+      desc: product.desc,
       quantity: 1,
     };
     cart.push(newCartItem);
   }
 
   console.log("Cart updated:", cart);
+  updateCartQuantity();
 };
 
 let turnOnLoading = () => {
