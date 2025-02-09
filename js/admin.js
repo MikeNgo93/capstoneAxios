@@ -1,4 +1,4 @@
-const BASE_URL = "https://67925d36cf994cc68049c413.mockapi.io/products";
+let BASE_URL = "https://67925d36cf994cc68049c413.mockapi.io/products";
 
 /*
 Các cải tiến: 

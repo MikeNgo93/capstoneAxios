@@ -73,6 +73,7 @@ let addToCart = (id) => {
 
   console.log("Cart updated:", cart);
   updateCartQuantity();
+  saveCartsToLocal();
 };
 
 let turnOnLoading = () => {
@@ -83,4 +84,17 @@ let turnOnLoading = () => {
 let turnOffLoading = () => {
   document.getElementById("loading").style.display = "none";
   console.log("loading off");
+};
+
+// Save cart to local storage
+let saveCartsToLocal = () => {
+  localStorage.setItem("cart", JSON.stringify(cart));
+};
+
+// Load cart from local storage
+let loadCartsFromLocal = () => {
+  let storedCart = localStorage.getItem("cart");
+  if (storedCart) {
+    cart = JSON.parse(storedCart);
+  }
 };

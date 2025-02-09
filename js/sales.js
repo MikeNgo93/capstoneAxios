@@ -1,12 +1,4 @@
-const BASE_URL = "https://67925d36cf994cc68049c413.mockapi.io/products";
-
-/*
-Các cải tiến: 
-  - Dùng chung một cấu trúc async function để dễ đọc hơn
-  - Dùng try - catch thay vì then - catch như trong lớp học 
-  - Có dùng finally để tắt loading
-*/
-
+let BASE_URL = "https://67925d36cf994cc68049c413.mockapi.io/products";
 let cart = []; // Global cart array
 let productsArray = [];
 
@@ -23,7 +15,6 @@ const fetchSalesProduct = async () => {
   }
 };
 
-fetchSalesProduct();
 console.log(productsArray);
 
 const filterSP = async (selectedValue) => {
@@ -41,4 +32,20 @@ const filterSP = async (selectedValue) => {
   } finally {
     turnOffLoading();
   }
+};
+
+window.onload = () => {
+  loadCartsFromLocal(); // Load cart from local
+
+  // If cart is not empty, save it to local storage
+  if (cart.length !== 0) {
+    saveCartsToLocal();
+  }
+
+  updateCartQuantity();
+
+  // Fetch and display products
+  fetchSalesProduct();
+
+  console.log(cart);
 };
