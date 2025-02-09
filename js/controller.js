@@ -331,10 +331,7 @@ let renderCart = () => {
 };
 
 let increaseQuantity = (id) => {
-  console.log(id);
   let cartItem = cart.find((item) => item.id == id);
-  console.log(cartItem);
-
   if (cartItem) {
     cartItem.quantity++;
 
@@ -344,10 +341,7 @@ let increaseQuantity = (id) => {
 };
 
 let decreaseQuantity = (id) => {
-  console.log(id);
-
   let cartItem = cart.find((item) => item.id == id);
-
   if (cartItem) {
     if (cartItem.quantity > 0) {
       cartItem.quantity--;

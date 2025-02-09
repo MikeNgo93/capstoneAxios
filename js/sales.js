@@ -45,6 +45,5 @@ window.onload = () => {
 
   // Fetch and display products
   fetchSalesProduct();
-
   console.log(cart);
 };
