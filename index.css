@@ -506,12 +506,13 @@ body,
 html {
   height: 100%;
   overflow-y: auto;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
-/* if content overflows */
 .banner {
   position: relative;
   min-height: 100vh;
   background: linear-gradient(to left, #8942a8, #ba382f);
   overflow-y: auto;
+  width: 100vw;
 }

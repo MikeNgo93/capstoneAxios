@@ -20,3 +20,20 @@ const fetchSalesProduct = async () => {
 };
 
 fetchSalesProduct();
+
+const filterSP = async (selectedValue) => {
+  console.log("filter");
+  try {
+    turnOnLoading();
+    const result = await axios.get(BASE_URL);
+    const filteredProducts = result.data.filter(
+      (product) => product.type == selectedValue
+    );
+
+    renderSalesProduct(filteredProducts);
+  } catch (error) {
+    console.error("Error fetching products:", error);
+  } finally {
+    turnOffLoading();
+  }
+};
