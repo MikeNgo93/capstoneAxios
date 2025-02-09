@@ -102,9 +102,12 @@
   <body>
     <!--start Trang sản phẩm -->
     <div id="app">
+      <div id="loading"></div>
+
       <div>
         <div class="banner">
           <!-- trang sản phẩm -->
+          <div id="productGrid"></div>
           <div class="nav">
             <button onclick="goToCart()">
               <i class="fas fa-shopping-cart" style="font-size: 2rem"></i>
@@ -155,8 +158,8 @@
     <!-- cdn axios -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <!-- controller -->
-    <script src=".js/controller.js"></script>
+    <script src="./js/salescontroller.js"></script>
     <!-- my js -->
-    <script src="./js/index.js"></script>
+    <script src="./js/sales.js"></script>
   </body>
 </html>

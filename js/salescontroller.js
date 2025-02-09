@@ -31,7 +31,7 @@ let renderSalesProduct = (productArr) => {
     }
   });
 
-  contentHTML += "</div>"; // End of the last row
+  contentHTML += "</div>"; // End
   document.getElementById("productGrid").innerHTML = contentHTML;
 };
 
