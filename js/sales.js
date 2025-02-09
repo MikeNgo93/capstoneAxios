@@ -8,7 +8,7 @@ const fetchSalesProduct = async () => {
     productsArray = result.data;
     renderSalesProduct(result.data);
   } catch (error) {
-    console.error("Error fetching products:", error);
+    console.error("Error fetching product:", error);
   } finally {
     turnOffLoading();
   }
@@ -27,7 +27,7 @@ const filterSP = async (selectedValue) => {
 
     renderSalesProduct(filteredProducts);
   } catch (error) {
-    console.error("Error fetching products:", error);
+    console.error("Error fetching product:", error);
   } finally {
     turnOffLoading();
   }
